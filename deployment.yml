@@ -6,7 +6,7 @@ spec:
   ports:
   - port: 80
     protocol: TCP
-    targetPort: 80
+    targetPort: 8080
   selector:
     app: nginx
   sessionAffinity: None
@@ -29,4 +29,4 @@ spec:
       - image: gcr.io/lyrical-link-271413/springboot:latest
         name: nginx
         ports:
-          - containerPort: 80
+          - containerPort: 8080
