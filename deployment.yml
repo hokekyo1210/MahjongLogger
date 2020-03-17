@@ -26,7 +26,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - image: gcr.io/GKE_PROJECT/IMAGE:TAG
+      - image: gcr.io/lyrical-link-271413/springboot:latest
         name: nginx
         ports:
           - containerPort: 80
