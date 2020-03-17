@@ -24,7 +24,7 @@ env:
   GKE_CLUSTER: cluster-1
   IMAGE: springboot
   REGISTRY_HOSTNAME: gcr.io
-  DEPLOYMENT_NAME: nginx
+  DEPLOYMENT_NAME: api
 
 jobs:
   setup-build-publish-deploy:
