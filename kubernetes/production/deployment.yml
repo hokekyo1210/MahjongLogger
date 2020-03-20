@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api
+  name: api-production-pod
 spec:
   selector:
     matchLabels:
-      app: api
+      app: api-production-pod
   template:
     metadata:
       labels:
-        app: api
+        app: api-production-pod
     spec:
       containers:
       - image: gcr.io/lyrical-link-271413/springboot:latest
-        name: api
+        name: api-production-pod
         ports:
           - containerPort: 8080
