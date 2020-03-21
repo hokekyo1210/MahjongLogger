@@ -21,11 +21,17 @@
     ```
 1. `docker-compose up -d`
 
+- web: http://192.168.99.100
+- api: http://192.168.99.100/api/rooms
+
 ### Others
 
 ```
 docker-compose up -d
 ```
+
+- web: http://localhost
+- api: http://localhost/api/rooms
 
 ## GKE Services
 
