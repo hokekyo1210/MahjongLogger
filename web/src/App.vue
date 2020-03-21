@@ -1,17 +1,22 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <GameCard
+      title='まとののちんちん部屋'
+      description='適当な説明文'
+      ownerName='ExampleUser'
+      gameCount=1
+      createdDate='2020/10/24'
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import GameCard from '@/components/molecules/GameDetailCard'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    GameCard
   }
 }
 </script>
