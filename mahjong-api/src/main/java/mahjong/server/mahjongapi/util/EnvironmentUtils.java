@@ -9,8 +9,8 @@ public class EnvironmentUtils {
         envValue = System.getenv();
     }
 
-    public String getDBHost() {
-        return envValue.get("DB_HOST");
+    public static String get(String key) {
+        return envValue.get(key);
     }
 
 }

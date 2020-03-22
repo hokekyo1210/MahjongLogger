@@ -1,5 +1,5 @@
 mahjong\server\mahjongapi\model\DBConnector.class
 mahjong\server\mahjongapi\DemoApplication.class
-mahjong\server\mahjongapi\util\EnviromentUtils.class
+mahjong\server\mahjongapi\util\EnvironmentUtils.class
 mahjong\server\mahjongapi\controller\RoomController.class
 mahjong\server\mahjongapi\model\Room.class
