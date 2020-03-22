@@ -23,7 +23,7 @@ env:
   GKE_ZONE: asia-northeast2-a
   GKE_CLUSTER: cluster-1
   IMAGE_API: springboot
-  IMAGE2_WEB: vue
+  IMAGE_WEB: vue
   REGISTRY_HOSTNAME: gcr.io
   DEPLOYMENT_NAME_API: api-staging-pod
   DEPLOYMENT_NAME_WEB: web-staging-pod
