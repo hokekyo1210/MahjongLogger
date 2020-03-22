@@ -1,0 +1,31 @@
+version: '3'
+services:
+
+  reverse-proxy:
+    image: nginx
+    container_name: nginx-container
+    volumes:
+      - ./nginx/nginx.conf.template:/etc/nginx/nginx.conf.template
+    ports:
+      - 80:80
+    environment: 
+      SERVER_NAME: localhost
+    command: /bin/sh -c "envsubst '$$SERVER_HOST' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && cat /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
+
+  api:
+    build:
+      context: ./mahjong-api
+    container_name: api-container
+    environment:
+      SPRINGBOOT_JAR_PATH: mahjong-api-0.0.1-SNAPSHOT.jar
+
+  web:
+    build:
+      context: ./web
+    container_name: web-container
+
+  postgres:
+    image: postgres
+    container_name: db-container
+    environment:
+      POSTGRES_PASSWORD: postgres
