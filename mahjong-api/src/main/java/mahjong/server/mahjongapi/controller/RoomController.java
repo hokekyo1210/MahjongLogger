@@ -6,12 +6,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import mahjong.server.mahjongapi.model.DBConnector;
+
 @RestController
 @RequestMapping("rooms")
 public class RoomController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String rooms(){
+        DBConnector con = new DBConnector("jdbc:postgresql://postgres:5432/postgres", "postgres", "test");
         return "room";
     }
 
