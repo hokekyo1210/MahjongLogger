@@ -13,7 +13,7 @@ data:
         http {
             server {
                 listen 80;
-                server_name 34.97.203.160;
+                server_name 34.84.4.228;
                 location /api {
                     proxy_pass http://api-staging-service:8080/;
                 }
