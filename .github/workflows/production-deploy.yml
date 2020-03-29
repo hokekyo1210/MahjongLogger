@@ -13,7 +13,7 @@ name: PRODUCTION Build and Deploy to GKE
 on:
   push:
     branches:
-      - feature/master
+      - master
 
 # Environment variables available to all jobs and steps in this workflow
 env:

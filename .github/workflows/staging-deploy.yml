@@ -13,7 +13,7 @@ name: STAGING Build and Deploy to GKE
 on:
   push:
     branches:
-      - feature/develop
+      - develop
 
 # Environment variables available to all jobs and steps in this workflow
 env:
