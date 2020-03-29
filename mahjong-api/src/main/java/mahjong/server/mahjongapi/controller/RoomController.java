@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import mahjong.server.mahjongapi.model.DBConnector;
+import mahjong.server.mahjongapi.model.DBConnectorSample;
 import mahjong.server.mahjongapi.model.Room;
 
 @RestController
@@ -21,7 +21,7 @@ public class RoomController {
     @RequestMapping(method = RequestMethod.GET)
     public String rooms() throws SQLException {
         // DBConnector con = new DBConnector("jdbc:postgresql://postgres:5432/postgres", "postgres", "test");
-        DBConnector con = DBConnector.instance();
+        DBConnectorSample con = DBConnectorSample.instance();
         List<Room> list = con.test();
         for(Room room : list){
             System.out.println(room);
