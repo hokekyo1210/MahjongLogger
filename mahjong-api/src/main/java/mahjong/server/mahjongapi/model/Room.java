@@ -8,11 +8,10 @@ import java.util.List;
 import java.util.UUID;
 
 import org.seasar.doma.Entity;
-import org.seasar.doma.jdbc.entity.NamingType;
 
 import lombok.Data;
 
-@Entity(naming = NamingType.SNAKE_UPPER_CASE) @Data
+@Entity @Data
 public class Room {
     private UUID roomId;
     private String ownerId;
