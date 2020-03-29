@@ -76,7 +76,7 @@ jobs:
     - name: Deploy
       run: |
         gcloud container clusters get-credentials $GKE_CLUSTER --zone $GKE_ZONE --project $GKE_PROJECT
-        kubectl create namespace staging
+        kubectl create namespace staging || true
         cd ./kubernetes/staging/api
         ./kustomize edit set image $REGISTRY_HOSTNAME/$GKE_PROJECT/$IMAGE_API:${GITHUB_SHA}
         ./kustomize build . | kubectl -n staging apply -f -
