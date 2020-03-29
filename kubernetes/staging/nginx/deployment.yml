@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-staging-pod
+spec:
+  selector:
+    matchLabels:
+      app: nginx-staging-pod
+  template:
+    metadata:
+      labels:
+        app: nginx-staging-pod
+    spec:
+      volumes:
+        - name: config-vol
+          configMap:
+            name: nginx-config
+            items:
+              - key: nginx.conf
+                path: nginx.conf
+      containers:
+      - image: nginx
+        name: nginx-staging-pod
+        volumeMounts:
+          - name: config-vol
+            mountPath: /etc/nginx/nginx.conf
+            subPath: nginx.conf
+        ports:
+          - containerPort: 80

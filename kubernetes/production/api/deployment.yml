@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-prod-pod
+spec:
+  selector:
+    matchLabels:
+      app: api-prod-pod
+  template:
+    metadata:
+      labels:
+        app: api-prod-pod
+    spec:
+      containers:
+      - image: gcr.io/lyrical-link-271413/springboot:latest
+        name: api-prod-pod
+        ports:
+          - containerPort: 8080
+        env:
+        - name: SPRINGBOOT_JAR_PATH
+          value: "mahjong-api-0.0.1-SNAPSHOT.jar"

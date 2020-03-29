@@ -16,3 +16,6 @@ spec:
         name: api-staging-pod
         ports:
           - containerPort: 8080
+        env:
+        - name: SPRINGBOOT_JAR_PATH
+          value: "mahjong-api-0.0.1-SNAPSHOT.jar"

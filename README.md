@@ -35,5 +35,5 @@ docker-compose up -d
 
 ## GKE Services
 
-- production: http://34.97.121.22
-- staging: http://34.97.69.219
+- production: http://34.84.166.211/
+- staging: http://34.84.4.228/
