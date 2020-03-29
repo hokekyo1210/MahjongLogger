@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-prod-pod
+spec:
+  selector:
+    matchLabels:
+      app: web-prod-pod
+  template:
+    metadata:
+      labels:
+        app: web-prod-pod
+    spec:
+      containers:
+      - image: gcr.io/lyrical-link-271413/vue:latest
+        name: web-prod-pod
+        ports:
+          - containerPort: 80

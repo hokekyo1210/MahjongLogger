@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-prod-service
+  labels:
+    app: nginx-prod-pod
+spec:
+  selector:
+    app: nginx-prod-pod
+  ports:
+  - port: 80
+    targetPort: 80
+  type: LoadBalancer
+  loadBalancerIP: "34.84.166.211"

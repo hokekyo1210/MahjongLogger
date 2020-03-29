@@ -8,12 +8,12 @@
 #
 # 3. Change the values for the GKE_ZONE, GKE_CLUSTER, IMAGE, REGISTRY_HOSTNAME and DEPLOYMENT_NAME environment variables (below).
 
-name: Build and Deploy to GKE
+name: [STAGING]Build and Deploy to GKE
 
 on:
   push:
     branches:
-      - feature/improve_github_actions_deploying
+      - feature/develop
 
 # Environment variables available to all jobs and steps in this workflow
 env:
