@@ -28,7 +28,9 @@ public final class DBConnectorSample {
             String host = EnvironmentUtils.get(ENV_DB_HOST_KEY);
             String user = EnvironmentUtils.get(ENV_DB_USER_KEY);
             String pass = EnvironmentUtils.get(ENV_DB_PASS_KEY);
+
             db = new DBConnectorSample(host, user, pass);
+
             return db;
         } catch(Exception ex) {
             throw new RuntimeException("DB接続に失敗しました。", ex);
@@ -40,6 +42,19 @@ public final class DBConnectorSample {
     private DBConnectorSample(String url, String user, String pass) throws SQLException {
         try {
             this.connection = DriverManager.getConnection(url, user, pass);
+        } catch(SQLException e) {
+            throw e;
+        }
+    }
+
+    public <T> List<T> execute(String sql, EntityPasable<T> parser) throws SQLException {
+        try(
+            Statement st = connection.createStatement();
+            ResultSet rs = st.executeQuery(sql)
+        ) {
+            List<T> result = parser.parse(rs);
+
+            return result;
         } catch(SQLException e) {
             throw e;
         }
