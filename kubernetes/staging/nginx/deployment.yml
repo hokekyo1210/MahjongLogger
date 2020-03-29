@@ -16,20 +16,14 @@ spec:
           configMap:
             name: nginx-config
             items:
-              - key: nginx.conf.template
-                path: nginx.conf.template
+              - key: nginx.conf
+                path: nginx.conf
       containers:
       - image: nginx
         name: nginx-staging-pod
         volumeMounts:
           - name: config-vol
-            mountPath: /etc/nginx/nginx.conf.template
-            subPath: nginx.conf.template
+            mountPath: /etc/nginx/nginx.conf
+            subPath: nginx.conf
         ports:
           - containerPort: 80
-        env:
-        - name: SERVER_NAME
-          value: "34.84.30.35"
-        command:
-          - /bin/sh -c "envsubst '$$SERVER_HOST' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && cat /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
-          

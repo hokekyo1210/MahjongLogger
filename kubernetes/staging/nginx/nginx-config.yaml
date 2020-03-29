@@ -6,14 +6,14 @@ metadata:
   resourceVersion: "516"
   uid: b4952dc3-d670-11e5-8cd0-68f728db1985
 data:
-    nginx.conf.template: |
+    nginx.conf: |
         events {
             worker_connections  16;
         }
         http {
             server {
                 listen 80;
-                server_name ${SERVER_NAME};
+                server_name 34.97.203.160;
                 location /api {
                     proxy_pass http://api-staging-service:8080/;
                 }
