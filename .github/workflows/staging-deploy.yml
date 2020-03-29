@@ -88,7 +88,8 @@ jobs:
         kubectl -n staging rollout status deployment/$DEPLOYMENT_NAME_WEB
         kubectl -n staging get services -o wide
         cd ../nginx
-        kubectl -n staging create configmap nginx-config --from-file=./nginx.conf
+        kubectl -n staging delete configmap nginx-config || true
+        kubectl -n staging create configmap nginx-config --from-file=./nginx.conf || true
         ./kustomize build . | kubectl -n staging apply -f -
         kubectl -n staging rollout status deployment/$DEPLOYMENT_NAME_NGINX
         kubectl -n staging get services -o wide
