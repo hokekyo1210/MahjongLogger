@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-staging-pod
+spec:
+  selector:
+    matchLabels:
+      app: nginx-staging-pod
+  template:
+    metadata:
+      labels:
+        app: nginx-staging-pod
+    spec:
+      volumes:
+        - name: config-vol
+          configMap:
+            name: nginx-config
+            items:
+              - key: nginx.conf.template
+                path: nginx.conf.template
+      containers:
+      - image: nginx
+        name: nginx-staging-pod
+        volumeMounts:
+          - name: config-vol
+            mountPath: /etc/nginx/nginx.conf.template
+            subPath: nginx.conf.template
+        ports:
+          - containerPort: 80
+        env:
+        - name: SERVER_NAME
+          value: "34.84.30.35"
+        command:
+          - /bin/sh -c "envsubst '$$SERVER_HOST' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && cat /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
+          
